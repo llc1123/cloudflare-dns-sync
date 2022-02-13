@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "lib": [
+      "ES2021"
+    ],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "outDir": "dist"
+  },
+  "include": [
+    "src"
+  ],
+  "ts-node": {
+    "transpileOnly": true,
+    "transpiler": "ts-node/transpilers/swc-experimental"
+  }
+}
