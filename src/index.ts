@@ -37,8 +37,11 @@ const cloudflarePatch = async <T = unknown>(
 
 const lookupPromise = (target: string): Promise<string> => {
   return new Promise((resolve, reject) => {
-    resolve4(target, (_, addresses) => {
-      if (addresses.length === 0) {
+    resolve4(target, (error, addresses) => {
+      if (error) {
+        reject(error)
+      }
+      if (addresses?.length === 0) {
         reject(new Error('No addresses found'))
       }
       resolve(addresses[0])
