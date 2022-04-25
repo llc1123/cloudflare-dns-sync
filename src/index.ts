@@ -41,10 +41,10 @@ const lookupPromise = (target: string): Promise<string> => {
       if (error) {
         reject(error)
       }
-      if (addresses?.length === 0) {
-        reject(new Error('No addresses found'))
+      if (addresses?.[0]) {
+        resolve(addresses[0])
       }
-      resolve(addresses[0])
+      reject(new Error('No addresses found'))
     })
   })
 }
