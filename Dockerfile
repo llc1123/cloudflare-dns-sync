@@ -1,5 +1,5 @@
 FROM node:16-slim AS builder
-RUN npm install -g pnpm
+RUN npm install -g pnpm@6.32.19
 WORKDIR /ddns
 COPY pnpm-lock.yaml ./
 RUN pnpm fetch
@@ -7,7 +7,7 @@ ADD . ./
 RUN pnpm install --offline && pnpm run build
 
 FROM node:16-slim
-RUN npm install -g pnpm
+RUN npm install -g pnpm@6.32.19
 WORKDIR /ddns
 COPY pnpm-lock.yaml ./
 RUN pnpm fetch --prod
